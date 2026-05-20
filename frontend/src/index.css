@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --accent: #4f46e5;
+    --accentHover: #4338ca;
+    --accentSoft: rgba(79, 70, 229, 0.12);
+    --accentRing: rgba(79, 70, 229, 0.22);
+  }
+
+  .dark {
+    color-scheme: dark;
+    --accentSoft: rgba(99, 102, 241, 0.18);
+    --accentRing: rgba(99, 102, 241, 0.26);
+  }
+
+  /* Accent themes */
+  .theme-indigo {
+    --accent: #4f46e5;
+    --accentHover: #4338ca;
+    --accentSoft: rgba(79, 70, 229, 0.12);
+    --accentRing: rgba(79, 70, 229, 0.22);
+  }
+  .theme-emerald {
+    --accent: #059669;
+    --accentHover: #047857;
+    --accentSoft: rgba(5, 150, 105, 0.12);
+    --accentRing: rgba(5, 150, 105, 0.22);
+  }
+  .theme-rose {
+    --accent: #e11d48;
+    --accentHover: #be123c;
+    --accentSoft: rgba(225, 29, 72, 0.12);
+    --accentRing: rgba(225, 29, 72, 0.22);
+  }
+  .theme-amber {
+    --accent: #d97706;
+    --accentHover: #b45309;
+    --accentSoft: rgba(217, 119, 6, 0.14);
+    --accentRing: rgba(217, 119, 6, 0.24);
+  }
+  .theme-cyan {
+    --accent: #0891b2;
+    --accentHover: #0e7490;
+    --accentSoft: rgba(8, 145, 178, 0.14);
+    --accentRing: rgba(8, 145, 178, 0.24);
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-offset-2 ring-offset-slate-50 dark:ring-offset-slate-950;
+    box-shadow: 0 0 0 2px var(--accentRing);
+  }
+
+  input,
+  select,
+  textarea {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4;
+  }
+  .bg-aurora {
+    background-image:
+      radial-gradient(600px circle at 18% 8%, rgba(99, 102, 241, 0.22), transparent 42%),
+      radial-gradient(520px circle at 82% 18%, rgba(236, 72, 153, 0.16), transparent 46%),
+      radial-gradient(680px circle at 50% 92%, rgba(34, 211, 238, 0.12), transparent 55%);
+  }
+  .card {
+    @apply rounded-2xl bg-white shadow-soft ring-1 ring-slate-200 dark:bg-slate-900/60 dark:ring-white/10;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold transition duration-200 ease-out;
+  }
+  .btn-primary {
+    @apply btn text-white disabled:opacity-60;
+    background: var(--accent);
+  }
+  .btn-primary:hover {
+    background: var(--accentHover);
+  }
+  .btn-primary:focus-visible {
+    box-shadow: 0 0 0 3px var(--accentRing);
+  }
+  .btn-secondary {
+    @apply btn bg-white text-slate-900 ring-1 ring-slate-200 hover:bg-slate-50 disabled:opacity-60 dark:bg-white/5 dark:text-white dark:ring-white/10 dark:hover:bg-white/10;
+  }
+  .btn-danger {
+    @apply btn bg-rose-600 text-white hover:bg-rose-700 disabled:opacity-60;
+  }
+  .input {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm focus:border-slate-400 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-slate-400;
+  }
+  .label {
+    @apply text-sm font-medium text-slate-700 dark:text-slate-200;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset transition duration-200 ease-out;
+  }
+  .chip:hover {
+    @apply -translate-y-0.5;
+  }
+  .kbd {
+    @apply rounded-md bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200 dark:bg-white/10 dark:text-slate-200 dark:ring-white/10;
+  }
+}
